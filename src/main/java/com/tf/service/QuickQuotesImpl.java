@@ -69,7 +69,7 @@ public class QuickQuotesImpl implements QuickQuotes{
             
             policy.setPolicyDate(new Date());
             policy.setPolicyId((long) Math.abs(new Random().nextInt()));
-            policy.setPremium(quote.getSumAssured()/(quote.getTerm()*12));
+            policy.setPremium(quote.getSumAssured()/(quote.getTerm()*24));
             policy.setTerm(quote.getTerm());
             policy.setStatus('A');
             policy.setUser(user);
