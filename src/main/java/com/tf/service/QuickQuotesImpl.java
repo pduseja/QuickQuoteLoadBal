@@ -4,6 +4,7 @@
  */
 package com.tf.service;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.Random;
 
@@ -69,7 +70,9 @@ public class QuickQuotesImpl implements QuickQuotes{
             
             policy.setPolicyDate(new Date());
             policy.setPolicyId((long) Math.abs(new Random().nextInt()));
-            policy.setPremium(quote.getSumAssured()/(quote.getTerm()*24));
+            float prem = quote.getSumAssured()/(quote.getTerm()*24);
+            String premS = new DecimalFormat("####.##").format(prem);
+            policy.setPremium(Float.parseFloat(premS));
             policy.setTerm(quote.getTerm());
             policy.setStatus('A');
             policy.setUser(user);
